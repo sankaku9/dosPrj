@@ -50,6 +50,10 @@ if not "%TGTDIR%"=="%TMPCURDIR%" (exit /b 1)
 robocopy /mir /r:3 /log:%~dp0\bkDirMirror.log "%ORGDIR%" "%TGTBKDIR%" > nul 2>&1
 rem robocopyは戻り値が複雑・・・戻り値チェックは諦めるか？
 
+rem ミラー取得日確認用にファイル作成。
+rem ディレクトリ更新日時で分かりそうだが一応。
+echo dummy > mirrorDate.txt
+
 set /a TMPCYCLENUM=%TMPCYCLENUM%+1
 rem set /p x=%TMPCYCLENUM%<nul > %~dp0\bkDirMirrorCycleNo.txt
 echo %TMPCYCLENUM% > %~dp0\bkDirMirrorCycleNo.txt
