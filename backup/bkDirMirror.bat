@@ -16,6 +16,7 @@ set GENNUM=10
 
 rem cycle番号判定
 for /f %%c in (%~dp0\bkDirMirrorCycleNo.txt) do set TMPCYCLENUM=%%c
+rem 数値型でない場合は比較演算子でエラー
 if %TMPCYCLENUM% geq %GENNUM%  (set TMPCYCLENUM=0)
 
 rem バックアップ取得先フォルダ
